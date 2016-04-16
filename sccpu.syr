@@ -1,0 +1,1109 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.21 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
+ 
+--> Reading design: sccpu.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "sccpu.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "sccpu"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : sccpu
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "E:\xilin_project\sccpu\mux2x32.v" into library work
+Parsing module <mux2x32>.
+Analyzing Verilog file "E:\xilin_project\sccpu\shift.v" into library work
+Parsing module <shift>.
+Analyzing Verilog file "E:\xilin_project\sccpu\sccu.v" into library work
+Parsing module <sccu>.
+Analyzing Verilog file "E:\xilin_project\sccpu\regfile.v" into library work
+Parsing module <regfile>.
+Analyzing Verilog file "E:\xilin_project\sccpu\mux4x32.v" into library work
+Parsing module <mux4x32>.
+Analyzing Verilog file "E:\xilin_project\sccpu\mux2x5.v" into library work
+Parsing module <mux2x5>.
+Analyzing Verilog file "E:\xilin_project\sccpu\dff32.v" into library work
+Parsing module <dff32>.
+Analyzing Verilog file "E:\xilin_project\sccpu\cla32.v" into library work
+Parsing module <cla32>.
+Analyzing Verilog file "E:\xilin_project\sccpu\alu.v" into library work
+Parsing module <alu>.
+Analyzing Verilog file "E:\xilin_project\sccpu\sccpu_cpu.v" into library work
+Parsing module <sccpu_cpu>.
+Analyzing Verilog file "E:\xilin_project\sccpu\IP_ROM.v" into library work
+Parsing module <IP_ROM>.
+Analyzing Verilog file "E:\xilin_project\sccpu\IP_RAM.v" into library work
+Parsing module <IP_RAM>.
+Analyzing Verilog file "E:\xilin_project\sccpu\sccpu.v" into library work
+Parsing module <sccpu>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <sccpu>.
+
+Elaborating module <sccpu_cpu>.
+
+Elaborating module <dff32>.
+
+Elaborating module <cla32>.
+
+Elaborating module <sccu>.
+
+Elaborating module <regfile>.
+
+Elaborating module <mux2x32>.
+
+Elaborating module <alu>.
+
+Elaborating module <shift>.
+
+Elaborating module <mux2x5>.
+
+Elaborating module <mux4x32>.
+
+Elaborating module <IP_ROM>.
+
+Elaborating module <IP_RAM>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <sccpu>.
+    Related source file is "E:\xilin_project\sccpu\sccpu.v".
+    Summary:
+	no macro.
+Unit <sccpu> synthesized.
+
+Synthesizing Unit <sccpu_cpu>.
+    Related source file is "E:\xilin_project\sccpu\sccpu_cpu.v".
+    Summary:
+	no macro.
+Unit <sccpu_cpu> synthesized.
+
+Synthesizing Unit <dff32>.
+    Related source file is "E:\xilin_project\sccpu\dff32.v".
+    Found 32-bit register for signal <q>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <dff32> synthesized.
+
+Synthesizing Unit <cla32>.
+    Related source file is "E:\xilin_project\sccpu\cla32.v".
+    Found 32-bit adder for signal <s> created at line 25.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <cla32> synthesized.
+
+Synthesizing Unit <sccu>.
+    Related source file is "E:\xilin_project\sccpu\sccu.v".
+    Summary:
+	no macro.
+Unit <sccu> synthesized.
+
+Synthesizing Unit <regfile>.
+    Related source file is "E:\xilin_project\sccpu\regfile.v".
+    Found 992-bit register for signal <n0050[991:0]>.
+    Found 32-bit 31-to-1 multiplexer for signal <rna[4]_register[31][31]_wide_mux_1_OUT> created at line 28.
+    Found 32-bit 31-to-1 multiplexer for signal <rnb[4]_register[31][31]_wide_mux_4_OUT> created at line 29.
+    Summary:
+	inferred 992 D-type flip-flop(s).
+	inferred  35 Multiplexer(s).
+Unit <regfile> synthesized.
+
+Synthesizing Unit <mux2x32>.
+    Related source file is "E:\xilin_project\sccpu\mux2x32.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <mux2x32> synthesized.
+
+Synthesizing Unit <alu>.
+    Related source file is "E:\xilin_project\sccpu\alu.v".
+    Found 32-bit subtractor for signal <a[31]_b[31]_sub_25_OUT> created at line 44.
+    Found 32-bit adder for signal <a[31]_b[31]_add_8_OUT> created at line 36.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  13 Multiplexer(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <shift>.
+    Related source file is "E:\xilin_project\sccpu\shift.v".
+        z = 16'b0000000000000000
+    Summary:
+	no macro.
+Unit <shift> synthesized.
+
+Synthesizing Unit <mux2x5>.
+    Related source file is "E:\xilin_project\sccpu\mux2x5.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <mux2x5> synthesized.
+
+Synthesizing Unit <mux4x32>.
+    Related source file is "E:\xilin_project\sccpu\mux4x32.v".
+    Found 32-bit 4-to-1 multiplexer for signal <y> created at line 29.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <mux4x32> synthesized.
+
+Synthesizing Unit <IP_ROM>.
+    Related source file is "E:\xilin_project\sccpu\IP_ROM.v".
+WARNING:Xst:647 - Input <a<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <a<31:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 64x32-bit Read Only RAM for signal <inst>
+    Summary:
+	inferred   1 RAM(s).
+Unit <IP_ROM> synthesized.
+
+Synthesizing Unit <IP_RAM>.
+    Related source file is "E:\xilin_project\sccpu\IP_RAM.v".
+WARNING:Xst:647 - Input <addr<31:7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32x32-bit dual-port RAM <Mram_ram> for signal <ram>.
+    Summary:
+	inferred   1 RAM(s).
+Unit <IP_RAM> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 32x32-bit dual-port RAM                               : 1
+ 64x32-bit single-port Read Only RAM                   : 1
+# Adders/Subtractors                                   : 3
+ 32-bit adder                                          : 2
+ 32-bit subtractor                                     : 1
+# Registers                                            : 2
+ 32-bit register                                       : 1
+ 992-bit register                                      : 1
+# Multiplexers                                         : 63
+ 32-bit 2-to-1 multiplexer                             : 59
+ 32-bit 31-to-1 multiplexer                            : 2
+ 32-bit 4-to-1 multiplexer                             : 1
+ 5-bit 2-to-1 multiplexer                              : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <IP_RAM>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_ram> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <we>            | high     |
+    |     addrA          | connected to signal <addr<4:0>>     |          |
+    |     diA            | connected to signal <datain>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     addrB          | connected to signal <addr<6:2>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <IP_RAM> synthesized (advanced).
+
+Synthesizing (advanced) Unit <IP_ROM>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_inst> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 32-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <a>             |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <inst>          |          |
+    -----------------------------------------------------------------------
+Unit <IP_ROM> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 32x32-bit dual-port distributed RAM                   : 1
+ 64x32-bit single-port distributed Read Only RAM       : 1
+# Adders/Subtractors                                   : 3
+ 32-bit adder                                          : 2
+ 32-bit subtractor                                     : 1
+# Registers                                            : 1024
+ Flip-Flops                                            : 1024
+# Multiplexers                                         : 63
+ 32-bit 2-to-1 multiplexer                             : 59
+ 32-bit 31-to-1 multiplexer                            : 2
+ 32-bit 4-to-1 multiplexer                             : 1
+ 5-bit 2-to-1 multiplexer                              : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <sccpu> ...
+
+Optimizing unit <sccpu_cpu> ...
+
+Optimizing unit <dff32> ...
+
+Optimizing unit <regfile> ...
+
+Optimizing unit <alu> ...
+
+Optimizing unit <shift> ...
+WARNING:Xst:1293 - FF/Latch <sccpu_cpu/ip/q_1> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/ip/q_0> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sccpu_cpu/rf/register_31_160> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_161> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_162> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_163> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_164> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_165> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_166> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_167> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_168> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_169> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_170> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_171> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_172> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_173> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_174> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_175> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_176> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_177> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_178> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_179> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_180> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_181> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_182> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_183> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_184> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_185> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_186> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_187> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_188> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_189> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_190> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_191> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_128> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_129> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_130> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_131> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_132> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_133> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_134> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_135> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_136> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_137> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_138> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_139> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_140> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_141> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_142> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_143> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_144> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_145> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_146> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_147> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_148> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_149> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_150> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_151> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_152> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_153> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_154> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_155> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_156> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_157> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_158> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_159> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_224> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_225> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_226> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_227> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_228> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_229> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_230> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_231> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_232> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_233> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_234> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_235> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_236> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_237> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_238> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_239> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_240> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_241> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_242> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_243> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_244> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_245> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_246> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_247> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_248> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_249> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_250> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_251> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_252> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_253> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_254> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_255> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_192> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_193> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_194> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_195> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_196> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_197> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_198> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_199> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_200> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_201> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_202> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_203> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_204> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_205> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_206> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_207> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_208> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_209> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_210> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_211> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_212> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_213> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_214> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_215> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_216> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_217> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_218> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_219> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_220> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_221> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_222> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_223> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_32> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_33> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_34> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_35> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_36> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_37> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_38> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_39> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_40> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_41> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_42> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_43> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_44> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_45> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_46> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_47> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_48> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_49> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_50> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_51> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_52> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_53> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_54> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_55> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_56> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_57> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_58> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_59> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_60> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_61> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_62> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_63> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_0> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_1> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_2> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_3> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_4> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_5> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_6> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_7> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_8> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_9> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_10> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_11> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_12> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_13> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_14> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_15> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_16> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_17> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_18> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_19> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_20> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_21> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_22> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_23> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_24> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_25> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_26> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_27> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_28> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_29> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_30> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_31> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_96> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_97> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_98> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_99> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_100> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_101> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_102> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_103> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_104> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_105> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_106> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_107> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_108> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_109> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_110> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_111> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_112> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_113> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_114> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_115> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_116> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_117> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_118> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_119> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_120> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_121> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_122> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_123> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_124> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_125> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_126> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_127> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_64> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_65> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_66> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_67> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_68> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_69> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_70> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_71> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_72> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_73> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_74> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_75> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_76> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_77> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_78> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_79> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_80> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_81> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_82> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_83> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_84> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_85> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_86> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_87> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_88> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_89> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_90> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_91> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_92> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_93> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_94> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_95> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_416> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_417> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_418> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_419> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_420> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_421> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_422> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_423> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_424> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_425> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_426> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_427> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_428> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_429> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_430> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_431> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_432> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_433> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_434> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_435> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_436> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_437> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_438> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_439> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_440> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_441> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_442> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_443> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_444> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_445> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_446> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_447> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_384> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_385> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_386> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_387> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_388> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_389> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_390> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_391> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_392> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_393> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_394> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_395> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_396> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_397> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_398> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_399> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_400> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_401> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_402> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_403> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_404> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_405> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_406> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_407> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_408> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_409> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_410> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_411> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_412> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_413> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_414> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_415> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_480> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_481> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_482> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_483> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_484> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_485> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_486> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_487> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_488> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_489> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_490> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_491> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_492> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_493> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_494> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_495> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_496> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_497> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_498> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_499> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_500> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_501> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_502> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_503> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_504> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_505> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_506> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_507> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_508> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_509> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_510> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_511> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_448> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_449> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_450> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_451> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_452> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_453> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_454> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_455> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_456> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_457> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_458> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_459> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_460> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_461> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_462> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_463> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_464> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_465> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_466> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_467> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_468> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_469> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_470> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_471> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_472> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_473> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_474> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_475> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_476> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_477> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_478> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_479> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_288> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_289> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_290> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_291> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_292> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_293> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_294> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_295> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_296> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_297> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_298> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_299> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_300> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_301> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_302> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_303> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_304> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_305> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_306> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_307> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_308> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_309> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_310> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_311> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_312> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_313> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_314> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_315> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_316> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_317> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_318> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_319> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_256> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_257> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_258> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_259> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_260> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_261> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_262> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_263> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_264> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_265> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_266> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_267> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_268> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_269> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_270> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_271> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_272> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_273> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_274> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_275> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_276> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_277> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_278> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_279> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_280> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_281> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_282> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_283> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_284> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_285> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_286> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_287> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_352> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_353> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_354> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_355> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_356> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_357> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_358> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_359> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_360> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_361> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_362> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_363> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_364> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_365> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_366> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_367> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_368> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_369> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_370> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_371> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_372> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_373> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_374> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_375> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_376> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_377> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_378> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_379> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_380> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_381> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_382> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_383> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_320> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_321> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_322> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_323> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_324> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_325> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_326> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_327> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_328> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_329> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_330> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_331> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_332> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_333> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_334> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_335> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_336> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_337> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_338> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_339> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_340> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_341> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_342> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_343> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_344> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_345> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_346> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_347> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_348> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_349> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_350> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sccpu_cpu/rf/register_31_351> has a constant value of 0 in block <sccpu>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block sccpu, actual ratio is 20.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 510
+ Flip-Flops                                            : 510
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : sccpu.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1728
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 29
+#      LUT2                        : 4
+#      LUT3                        : 9
+#      LUT4                        : 101
+#      LUT5                        : 673
+#      LUT6                        : 709
+#      MUXCY                       : 91
+#      MUXF7                       : 14
+#      VCC                         : 1
+#      XORCY                       : 94
+# FlipFlops/Latches                : 510
+#      FDC                         : 30
+#      FDCE                        : 480
+# RAMS                             : 7
+#      RAM32M                      : 5
+#      RAM32X1D                    : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 129
+#      IBUF                        : 1
+#      OBUF                        : 128
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             510  out of  18224     2%  
+ Number of Slice LUTs:                 1551  out of   9112    17%  
+    Number used as Logic:              1527  out of   9112    16%  
+    Number used as Memory:               24  out of   2176     1%  
+       Number used as RAM:               24
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1551
+   Number with an unused Flip Flop:    1041  out of   1551    67%  
+   Number with an unused LUT:             0  out of   1551     0%  
+   Number of fully used LUT-FF pairs:   510  out of   1551    32%  
+   Number of unique control sets:         2
+
+IO Utilization: 
+ Number of IOs:                         130
+ Number of bonded IOBs:                 130  out of    232    56%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 517   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 14.674ns (Maximum Frequency: 68.148MHz)
+   Minimum input arrival time before clock: 4.526ns
+   Maximum output required time after clock: 16.160ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 14.674ns (frequency: 68.148MHz)
+  Total number of paths / destination ports: 34690516 / 1074
+-------------------------------------------------------------------------
+Delay:               14.674ns (Levels of Logic = 11)
+  Source:            sccpu_cpu/ip/q_3 (FF)
+  Destination:       sccpu_cpu/ip/q_31 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: sccpu_cpu/ip/q_3 to sccpu_cpu/ip/q_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             15   0.447   1.326  sccpu_cpu/ip/q_3 (sccpu_cpu/ip/q_3)
+     LUT6:I1->O          176   0.203   2.032  inst_mem/Mram_inst51 (inst_5_OBUF)
+     LUT6:I5->O            1   0.205   0.827  sccpu_cpu/rf/Mmux_rna[4]_register[31][31]_wide_mux_1_OUT_980 (sccpu_cpu/rf/Mmux_rna[4]_register[31][31]_wide_mux_1_OUT_980)
+     LUT6:I2->O           17   0.203   1.028  sccpu_cpu/rf/Mmux_rna[4]_register[31][31]_wide_mux_1_OUT_426 (sccpu_cpu/rf/Mmux_rna[4]_register[31][31]_wide_mux_1_OUT_426)
+     LUT6:I5->O           12   0.205   0.909  sccpu_cpu/alu_a/Mmux_y271_4 (sccpu_cpu/alu_a/Mmux_y271_3)
+     LUT6:I5->O            4   0.205   0.931  sccpu_cpu/al_unit/shifer/sa<3>31 (sccpu_cpu/al_unit/shifer/sa<3>_mmx_out11)
+     LUT6:I2->O            4   0.203   0.788  sccpu_cpu/al_unit/shifer/sa<1>261 (sccpu_cpu/al_unit/shifer/sa<1>_mmx_out31)
+     LUT6:I4->O            1   0.203   0.684  sccpu_cpu/al_unit/Mmux_r426_SW0_SW1 (N308)
+     LUT6:I4->O           17   0.203   1.372  sccpu_cpu/al_unit/Mmux_r426 (aluout_21_OBUF)
+     LUT6:I1->O           15   0.203   0.982  sccpu_cpu/al_unit/z1 (sccpu_cpu/al_unit/z)
+     LUT6:I5->O           16   0.205   1.005  sccpu_cpu/al_unit/z8 (sccpu_cpu/z)
+     LUT6:I5->O            1   0.205   0.000  sccpu_cpu/nextpc/Mmux_y251 (sccpu_cpu/nextPc<31>)
+     FDC:D                     0.102          sccpu_cpu/ip/q_31
+    ----------------------------------------
+    Total                     14.674ns (2.792ns logic, 11.882ns route)
+                                       (19.0% logic, 81.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 510 / 510
+-------------------------------------------------------------------------
+Offset:              4.526ns (Levels of Logic = 2)
+  Source:            clrn (PAD)
+  Destination:       sccpu_cpu/ip/q_31 (FF)
+  Destination Clock: clk rising
+
+  Data Path: clrn to sccpu_cpu/ip/q_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.579  clrn_IBUF (clrn_IBUF)
+     INV:I->O            510   0.206   2.089  sccpu_cpu/ip/clrn_inv1_INV_0 (sccpu_cpu/ip/clrn_inv)
+     FDC:CLR                   0.430          sccpu_cpu/ip/q_2
+    ----------------------------------------
+    Total                      4.526ns (1.858ns logic, 2.668ns route)
+                                       (41.1% logic, 58.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 848481 / 111
+-------------------------------------------------------------------------
+Offset:              16.160ns (Levels of Logic = 10)
+  Source:            sccpu_cpu/ip/q_3 (FF)
+  Destination:       memout<31> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: sccpu_cpu/ip/q_3 to memout<31>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             15   0.447   1.326  sccpu_cpu/ip/q_3 (sccpu_cpu/ip/q_3)
+     LUT6:I1->O          176   0.203   2.032  inst_mem/Mram_inst51 (inst_5_OBUF)
+     LUT6:I5->O            1   0.205   0.827  sccpu_cpu/rf/Mmux_rna[4]_register[31][31]_wide_mux_1_OUT_980 (sccpu_cpu/rf/Mmux_rna[4]_register[31][31]_wide_mux_1_OUT_980)
+     LUT6:I2->O           17   0.203   1.028  sccpu_cpu/rf/Mmux_rna[4]_register[31][31]_wide_mux_1_OUT_426 (sccpu_cpu/rf/Mmux_rna[4]_register[31][31]_wide_mux_1_OUT_426)
+     LUT6:I5->O           41   0.205   1.420  sccpu_cpu/alu_a/Mmux_y271 (sccpu_cpu/alu_sa<4>)
+     LUT5:I4->O            1   0.205   0.827  sccpu_cpu/al_unit/shifer/sa<1>562_SW1 (N81)
+     LUT6:I2->O            5   0.203   0.715  sccpu_cpu/al_unit/shifer/sa<1>563 (sccpu_cpu/al_unit/shifer/sa<1>_mmx_out58)
+     LUT6:I5->O            2   0.205   0.721  sccpu_cpu/al_unit/Mmux_r787_SW0 (N190)
+     LUT6:I4->O           40   0.203   1.405  sccpu_cpu/al_unit/Mmux_r787 (aluout_3_OBUF)
+     RAM32X1D:DPRA1->DPO   16   0.205   1.004  data_mem/Mram_ram62 (memout_31_OBUF)
+     OBUF:I->O                 2.571          memout_31_OBUF (memout<31>)
+    ----------------------------------------
+    Total                     16.160ns (4.855ns logic, 11.305ns route)
+                                       (30.0% logic, 70.0% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |   14.674|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 49.00 secs
+Total CPU time to Xst completion: 48.69 secs
+ 
+--> 
+
+Total memory usage is 281572 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  517 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
