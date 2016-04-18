@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+pipe_IF instance_name (
+    .pc(pc), 
+    .clrn(clrn), 
+    .clk(clk), 
+    .inst(inst)
+    );
+
+

@@ -18,20 +18,23 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_ID(inst,clrn,clk,WBwreg,WBwn,WBdata,
-					EXwreg,EXm2reg,EXwmem,EXaluc,EXshift,EXaluimm,EXwn,EXqa,EXqb,EXimmeOrSa
+module pipe_ID(newInst,clrn,clk,WBwreg,WBwn,WBdata,
+					IDwreg,IDm2reg,IDwmem,IDaluc,IDshift,IDaluimm,IDwn,IDqa,IDqb,IDimmeOrSa
     );
-	input [31:0] inst;
+	input [31:0] newInst;
 	input clrn,clk;
 	input WBwreg;
 	input [4:0] WBwn;
 	input [31:0] WBdata;
 	
-	output EXwreg,EXm2reg,EXwmem,EXshift,EXaluimm;
-	output [3:0] EXaluc;
-	output [4:0] EXwn;
-	output [31:0] EXqa,EXqb;
-	output [31:0] EXimmeOrSa;
+	output IDwreg,IDm2reg,IDwmem,IDshift,IDaluimm;
+	output [3:0] IDaluc;
+	output [4:0] IDwn;
+	output [31:0] IDqa,IDqb;
+	output [31:0] IDimmeOrSa;
+	
+	wire [31:0] inst;
+	IF_ID_reg inst_reg(newInst,inst,clk,clrn);
 	
 	wire [11:0] op = inst[31:20];
 	wire [4:0] rs = inst[9:5];//rs1
@@ -40,15 +43,16 @@ module pipe_ID(inst,clrn,clk,WBwreg,WBwn,WBdata,
 	wire [31:0] sa = {27'b0,inst[19:15]};
 	wire [15:0] imme = inst[25:10];
 
-	wire wreg,m2reg,wmem,shift,aluimm,sst,sext;
+//	wire wreg,m2reg,wmem,shift,aluimm,sst,sext;
+	wire sst,sext;
 	wire [3:0] aluc;
 	wire [1:0] pcsource;
 	
 	sccu pipe_cu(.op(op),.z(0),
-					.wreg(wreg),.sst(sst),.m2reg(m2reg),.shlft(shift),.aluimm(aluimm),.sext(sext),.aluc(aluc),.wmem(wmem),.pcsource(pcsource));
+					.wreg(IDwreg),.sst(sst),.m2reg(IDm2reg),.shlft(IDshift),.aluimm(IDaluimm),.sext(sext),.aluc(IDaluc),.wmem(IDwmem),.pcsource(pcsource));
 
-	wire [4:0] wn;
-	mux2x5 wn_select(rt,rd,sst,wn);
+	//wire [4:0] wn;
+	mux2x5 wn_select(rt,rd,sst,IDwn);
 	
 	wire [31:0] qa,qb;
 	regfile rf(.rna(rs),.rnb(rt),.d(WBdata),.wn(WBwn),
@@ -59,10 +63,10 @@ module pipe_ID(inst,clrn,clk,WBwreg,WBwn,WBdata,
 	wire [31:0] imme_extend = {imm,imme};
 	
 	wire [31:0] immeOrSa;
-	mux2x5 immeOrSa_select(imme_extend,sa,shift,immeOrSa);
+	mux2x5 immeOrSa_select(imme_extend,sa,IDshift,IDimmeOrSa);
 	
-	ID_EX_reg id_to_ex_reg(.wreg(wreg),.m2reg(m2reg),.wmem(wmem),.aluc(aluc),.shift(shift),.aluimm(aluimm),.wn(wn),.qa(qa),.qb(qb),.immeOrSa(immeOrSa),
-									.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXaluc(EXaluc),.EXshift(EXshift),.EXaluimm(EXaluimm),.EXwn(EXwn),
-									.EXqa(EXqa),.EXqb(EXqb),.EXimmeOrSa(EXimmeOrSa));
+	//ID_EX_reg id_to_ex_reg(.wreg(wreg),.m2reg(m2reg),.wmem(wmem),.aluc(aluc),.shift(shift),.aluimm(aluimm),.wn(wn),.qa(qa),.qb(qb),.immeOrSa(immeOrSa),
+		//							.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXaluc(EXaluc),.EXshift(EXshift),.EXaluimm(EXaluimm),.EXwn(EXwn),
+		//							.EXqa(EXqa),.EXqb(EXqb),.EXimmeOrSa(EXimmeOrSa));
 	
 endmodule

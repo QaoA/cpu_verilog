@@ -18,19 +18,20 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_IF(pc,clrn,clk,
-					inst,nextPc
+module pipe_IF(clrn,clk,
+					newInst
     );
-	 
-	 input [31:0] pc;
+	 //output [31:0] pc;
 	 input clrn,clk;
-	 output [31:0] inst;
-	 output [31:0] nextPc;
+	 output [31:0] newInst;
 	 
 	 wire [31:0] newInst;
-	
-	 cla32 pcplus4(pc,32'h0004,1'b0,nextPc);
+	 wire [31:0] nextPc;
+	 wire [31:0] pc;
+	 
+	 cla32 pcplus4(pc,32'h00000004,1'b0,nextPc);
 	 IP_ROM inst_mem(pc,newInst);
-	 IF_ID_reg inst_reg(newInst,inst,clk,clrn);
+	 //IF_ID_reg inst_reg(newInst,inst,clk,clrn);
+	 dff32 ip(nextPc,clk,clrn,pc);
 
 endmodule

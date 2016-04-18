@@ -18,31 +18,38 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_EX(EXwreg,EXm2reg,EXwmem,EXaluc,EXshift,EXaluimm,EXwn,EXqa,EXqb,EXimmeOrSa,clk,clrn,
-					MEMwreg,MEMm2reg,MEMwmem,MEMwn,MEMaluResult,MEMdi
+module pipe_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDshift,IDaluimm,IDwn,IDqa,IDqb,IDimmeOrSa,clk,clrn,
+					EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi
     );
 	 
-	 input EXwreg,EXm2reg,EXwmem,EXshift,EXaluimm;
-	 input [3:0] EXaluc;
-	 input [4:0] EXwn;
-	 input [31:0] EXqa,EXqb;
-	 input [31:0] EXimmeOrSa;
+	 input IDwreg,IDm2reg,IDwmem,IDshift,IDaluimm;
+	 input [3:0] IDaluc;
+	 input [4:0] IDwn;
+	 input [31:0] IDqa,IDqb;
+	 input [31:0] IDimmeOrSa;
 	 input clk,clrn;
 	 
-	 output MEMwreg,MEMm2reg,MEMwmem;
-	 output [4:0] MEMwn;
-	 output [31:0] MEMaluResult,MEMdi;
+	 output EXwreg,EXm2reg,EXwmem;
+	 output [4:0] EXwn;
+	 output [31:0] EXaluResult,EXdi;
+	 
+	 wire shift,aluim;
+	 wire [3:0] aluc;
+	 wire [31:0] qa,qb,immeOrSa;
+	 ID_EX_reg id_to_ex_reg(.wreg(IDwreg),.m2reg(IDm2reg),.wmem(IDwmem),.aluc(IDaluc),.shift(IDshift),.aluimm(IDaluimm),.wn(IDwn),.qa(IDqa),.qb(IDqb),.immeOrSa(IDimmeOrSa),
+									.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXaluc(aluc),.EXshift(shift),.EXaluimm(aluimm),.EXwn(EXwn),
+									.EXqa(qa),.EXqb(qb),.EXimmeOrSa(immeOrSa));
 	 
 	 wire [31:0] alua,alub;
-	 mux2x32 alu_a(EXqa,EXimmeOrSa,EXshift,alua);
-	 mux2x32 alu_b(EXqb,EXimmeOrSa,EXaluimm,alub);
+	 mux2x32 alu_a(qa,immeOrSa,shift,alua);
+	 mux2x32 alu_b(qb,immeOrSa,aluimm,alub);
 	 
 	 wire z;
-	 wire [31:0] alu_result;
-	 alu al_unit(.a(alua),.b(alub),.aluc(EXaluc),.z(z),.r(alu_result));
+	 //wire [31:0] alu_result;
+	 alu al_unit(.a(alua),.b(alub),.aluc(aluc),.z(z),.r(EXaluResult));
 	 
-	 EX_MEM_reg ex_to_mem_reg(.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXwn(EXwn),.aluResult(alu_result),.EXqb(EXqb),.clrn(clrn),.clk(clk),
-										.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwmem(MEMwmem),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMdi(MEMdi));
+	 //EX_MEM_reg ex_to_mem_reg(.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXwn(EXwn),.aluResult(alu_result),.EXqb(EXqb),.clrn(clrn),.clk(clk),
+	//									.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwmem(MEMwmem),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMdi(MEMdi));
 
 
 endmodule

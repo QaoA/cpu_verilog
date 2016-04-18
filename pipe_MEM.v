@@ -18,26 +18,28 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_MEM(MEMwreg,MEMm2reg,MEMwmem,MEMwn,MEMaluResult,MEMdi,clrn,clk,
-					WBwreg,WBm2reg,WBwn,WBaluResult,WBmemOut
+module pipe_MEM(EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,clrn,clk,
+					MEMwreg,MEMm2reg,MEMwn,MEMaluResult,MEMmemOut
     );
 	 
-	 input MEMwreg,MEMm2reg,MEMwmem;
-	 input [4:0] MEMwn;
-	 input [31:0] MEMaluResult,MEMdi;
+	 input EXwreg,EXm2reg,EXwmem;
+	 input [4:0] EXwn;
+	 input [31:0] EXaluResult,EXdi;
 	 input clrn,clk;
 	 
-	 output WBwreg,WBm2reg;
-	 output [4:0] WBwn;
-	 output [31:0] WBaluResult,WBmemOut;
+	 output MEMwreg,MEMm2reg;
+	 output [4:0] MEMwn;
+	 output [31:0] MEMaluResult,MEMmemOut;
 	 
-	 wire [31:0] memOut;
-	 IP_RAM data_mem(.we(MEMwmem),.addr(MEMaluResult),.datain(MEMdi),.clk(clk),.dataout(memData));
+	 wire wmem;
+	 wire [31:0] di;
+	 EX_MEM_reg ex_to_mem_reg(.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXwn(EXwn),.aluResult(EXaluResult),.EXqb(EXdi),.clrn(clrn),.clk(clk),
+										.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwmem(wmem),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMdi(di));
+
+	// wire [31:0] memOut;
+	 IP_RAM data_mem(.we(wmem),.addr(MEMaluResult),.datain(di),.clk(clk),.dataout(MEMmemData));
 	 
-	 MEM_WB_reg mem_to_wb_reg(.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMmemOut(memOut),.clrn(clrn),.clk(clk),
-										.WBwreg(WBwreg),.WBm2reg(WBm2reg),.WBwn(WBwn),.WBaluResult(WBaluResult),.WBmemOut(WBmemOut));
+	// MEM_WB_reg mem_to_wb_reg(.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMmemOut(memOut),.clrn(clrn),.clk(clk),
+	//									.WBwreg(WBwreg),.WBm2reg(WBm2reg),.WBwn(WBwn),.WBaluResult(WBaluResult),.WBmemOut(WBmemOut));
 										
-	 
-
-
 endmodule

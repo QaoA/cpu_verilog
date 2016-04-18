@@ -1,0 +1,10 @@
+[Inputs]
+clrn
+clk
+=pc[31:0]=
+[Outputs]
+=inst[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel pipe_IF
+
