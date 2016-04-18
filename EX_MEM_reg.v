@@ -18,12 +18,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXwn,aluResult,EXqb,
+module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXwn,aluResult,EXqb,clrn,clk,
 						MEMwreg,MEMm2reg,MEMwmem,MEMwn,MEMaluResult,MEMdi
     );
 	input EXwreg,EXm2reg,EXwmem;
 	input [4:0] EXwn;
 	input [31:0] aluResult,EXqb;
+	input clrn,clk;
 	
 	output MEMwreg,MEMm2reg,MEMwmem;
 	output [4:0] MEMwn;

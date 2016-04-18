@@ -18,12 +18,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module MEM_WB_reg(MEMwreg,MEMm2reg,MEMwn,MEMaluResult,MEMmemOut,
+module MEM_WB_reg(MEMwreg,MEMm2reg,MEMwn,MEMaluResult,MEMmemOut,clrn,clk,
 						WBwreg,WBm2reg,WBwn,WBaluResult,WBmemOut
     );
 	input MEMwreg,MEMm2reg;
 	input [4:0] MEMwn;
 	input [31:0] MEMaluResult,MEMmemOut;
+	input clrn,clk;
 	
 	output WBwreg,WBm2reg;
 	output [4:0] WBwn;

@@ -41,7 +41,8 @@ module pipe_EX(EXwreg,EXm2reg,EXwmem,EXaluc,EXshift,EXaluimm,EXwn,EXqa,EXqb,EXim
 	 wire [31:0] alu_result;
 	 alu al_unit(.a(alua),.b(alub),.aluc(EXaluc),.z(z),.r(alu_result));
 	 
-	 EX_MEM_reg ex_to_mem_reg();
+	 EX_MEM_reg ex_to_mem_reg(.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXwn(EXwn),.aluResult(alu_result),.EXqb(EXqb),.clrn(clrn),.clk(clk),
+										.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwmem(MEMwmem),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMdi(MEMdi));
 
 
 endmodule

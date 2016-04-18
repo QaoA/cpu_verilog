@@ -1,0 +1,5 @@
+verilog work "mux2x32.v"
+verilog work "shift.v"
+verilog work "EX_MEM_reg.v"
+verilog work "alu.v"
+verilog work "pipe_EX.v"
