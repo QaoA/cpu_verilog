@@ -37,7 +37,7 @@ module pipe_MEM(EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,clrn,clk,
 										.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwmem(wmem),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMdi(di));
 
 	// wire [31:0] memOut;
-	 IP_RAM data_mem(.we(wmem),.addr(MEMaluResult),.datain(di),.clk(clk),.dataout(MEMmemData));
+	 IP_RAM data_mem(.we(wmem),.addr(MEMaluResult),.datain(di),.clk(clk),.dataout(MEMmemOut));
 	 
 	// MEM_WB_reg mem_to_wb_reg(.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMmemOut(memOut),.clrn(clrn),.clk(clk),
 	//									.WBwreg(WBwreg),.WBm2reg(WBm2reg),.WBwn(WBwn),.WBaluResult(WBaluResult),.WBmemOut(WBmemOut));

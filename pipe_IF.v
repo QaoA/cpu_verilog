@@ -19,9 +19,9 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module pipe_IF(clrn,clk,
-					newInst
+					newInst,pc
     );
-	 //output [31:0] pc;
+	 output [31:0] pc;
 	 input clrn,clk;
 	 output [31:0] newInst;
 	 

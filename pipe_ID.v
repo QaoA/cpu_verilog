@@ -48,7 +48,7 @@ module pipe_ID(newInst,clrn,clk,WBwreg,WBwn,WBdata,
 	wire [3:0] aluc;
 	wire [1:0] pcsource;
 	
-	sccu pipe_cu(.op(op),.z(0),
+	sccu pipe_cu(.op(op),.z(1'b0),
 					.wreg(IDwreg),.sst(sst),.m2reg(IDm2reg),.shlft(IDshift),.aluimm(IDaluimm),.sext(sext),.aluc(IDaluc),.wmem(IDwmem),.pcsource(pcsource));
 
 	//wire [4:0] wn;
@@ -63,7 +63,7 @@ module pipe_ID(newInst,clrn,clk,WBwreg,WBwn,WBdata,
 	wire [31:0] imme_extend = {imm,imme};
 	
 	wire [31:0] immeOrSa;
-	mux2x5 immeOrSa_select(imme_extend,sa,IDshift,IDimmeOrSa);
+	mux2x32 immeOrSa_select(imme_extend,sa,IDshift,IDimmeOrSa);
 	
 	//ID_EX_reg id_to_ex_reg(.wreg(wreg),.m2reg(m2reg),.wmem(wmem),.aluc(aluc),.shift(shift),.aluimm(aluimm),.wn(wn),.qa(qa),.qb(qb),.immeOrSa(immeOrSa),
 		//							.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXaluc(EXaluc),.EXshift(EXshift),.EXaluimm(EXaluimm),.EXwn(EXwn),
