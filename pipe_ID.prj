@@ -1,0 +1,5 @@
+verilog work "sccu.v"
+verilog work "regfile.v"
+verilog work "mux2x5.v"
+verilog work "ID_EX_reg.v"
+verilog work "pipe_ID.v"

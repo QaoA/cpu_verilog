@@ -13,6 +13,8 @@
          <ClosedNode>/alu E:|xilin_project|sccpu|alu.v/sraer - shift</ClosedNode>
          <ClosedNode>/alu E:|xilin_project|sccpu|alu.v/srler - shift</ClosedNode>
          <ClosedNode>/alu E:|xilin_project|sccpu|alu.v/suber - addsub32</ClosedNode>
+         <ClosedNode>/pipe_EX E:|xilin_project|sccpu|pipe_EX.v</ClosedNode>
+         <ClosedNode>/pipe_ID E:|xilin_project|sccpu|pipe_ID.v</ClosedNode>
          <ClosedNode>/pipe_IF E:|xilin_project|sccpu|pipe_IF.v</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|backup|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|backup|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu/al_unit - alu/shifer - shift</ClosedNode>
@@ -23,13 +25,13 @@
          <ClosedNode>/shift E:|xilin_project|sccpu|shift.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>slct_st - mux2x5 (E:/xilin_project/sccpu/mux2x5.v)</SelectedItem>
+         <SelectedItem>pipe_ID (E:/xilin_project/sccpu/pipe_ID.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >8</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000012b000000020000000000000000000000000200000064ffffffff0000008100000003000000020000012b0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>slct_st - mux2x5 (E:/xilin_project/sccpu/mux2x5.v)</CurrentItem>
+      <CurrentItem>pipe_ID (E:/xilin_project/sccpu/pipe_ID.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -37,13 +39,13 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000126000000010000000100000000000000000000000064ffffffff000000810000000000000001000001260000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000b8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000b80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>

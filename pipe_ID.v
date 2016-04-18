@@ -48,8 +48,21 @@ module pipe_ID(inst,clrn,clk,WBwreg,WBwn,WBdata,
 					.wreg(wreg),.sst(sst),.m2reg(m2reg),.shlft(shift),.aluimm(aluimm),.sext(sext),.aluc(aluc),.wmem(wmem),.pcsource(pcsource));
 
 	wire [4:0] wn;
-	wn_select mux2x5(rt,rd,sst,wn);
+	mux2x5 wn_select(rt,rd,sst,wn);
 	
-	rf regfile();
+	wire [31:0] qa,qb;
+	regfile rf(.rna(rs),.rnb(rt),.d(WBdata),.wn(WBwn),
+				  .we(WBwreg),.clk(clk),.clrn(clrn),.qa(qa),.qb(qb));
+				  
+	wire e = sext & imme[15];
+	wire [15:0] imm = {16{e}};
+	wire [31:0] imme_extend = {imm,imme};
+	
+	wire [31:0] immeOrSa;
+	mux2x5 immeOrSa_select(imme_extend,sa,shift,immeOrSa);
+	
+	ID_EX_reg id_to_ex_reg(.wreg(wreg),.m2reg(m2reg),.wmem(wmem),.aluc(aluc),.shift(shift),.aluimm(aluimm),.wn(wn),.qa(qa),.qb(qb),.immeOrSa(immeOrSa),
+									.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXaluc(EXaluc),.EXshift(EXshift),.EXaluimm(EXaluimm),.EXwn(EXwn),
+									.EXqa(EXqa),.EXqb(EXqb),.EXimmeOrSa(EXimmeOrSa));
 	
 endmodule

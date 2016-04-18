@@ -41,6 +41,12 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mux2x32test_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="mux2x32test_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="mux2x32test_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="pipe_ID.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="pipe_ID.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="pipe_ID.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="pipe_IF.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="pipe_IF.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="pipe_IF.xst"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="regfile_isim_beh.exe"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="rf_test_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="sccpu.cmd_log"/>

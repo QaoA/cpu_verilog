@@ -25,11 +25,11 @@ module pipe_IF(pc,clrn,clk,
 	 input [31:0] pc;
 	 input clrn,clk;
 	 output [31:0] inst;
-	 output [31:0] p4;
+	 output [31:0] nextPc;
 	 
 	 wire [31:0] newInst;
 	
-	 cla32 pcplus4(pc,32'h0004,1'b0,p4);
+	 cla32 pcplus4(pc,32'h0004,1'b0,nextPc);
 	 IP_ROM inst_mem(pc,newInst);
 	 IF_ID_reg inst_reg(newInst,inst,clk,clrn);
 

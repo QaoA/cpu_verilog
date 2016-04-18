@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module ID_EX_reg(wreg,m2reg,wmem,aluc,shift,aluimm,wn,qa,qb,immeOrSa,
+module ID_EX_reg(wreg,m2reg,wmem,aluc,shift,aluimm,wn,qa,qb,immeOrSa,clk,clrn,
 						EXwreg,EXm2reg,EXwmem,EXaluc,EXshift,EXaluimm,EXwn,EXqa,EXqb,EXimmeOrSa
     );
 	 input wreg,m2reg,wmem,shift,aluimm;
@@ -26,6 +26,7 @@ module ID_EX_reg(wreg,m2reg,wmem,aluc,shift,aluimm,wn,qa,qb,immeOrSa,
 	 input [4:0] wn;
 	 input [31:0] qa,qb;
 	 input [31:0] immeOrSa;
+	 input clk,clrn;
 	 
 	 output EXwreg,EXm2reg,EXwmem,EXshift,EXaluimm;
 	 output [3:0] EXaluc;

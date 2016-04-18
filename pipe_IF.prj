@@ -1,0 +1,4 @@
+verilog work "IP_ROM.v"
+verilog work "IF_ID_reg.v"
+verilog work "cla32.v"
+verilog work "pipe_IF.v"
