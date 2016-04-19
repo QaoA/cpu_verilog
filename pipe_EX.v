@@ -21,7 +21,6 @@
 module pipe_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDshift,IDaluimm,IDwn,IDqa,IDqb,IDimmeOrSa,clk,clrn,
 					EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi
     );
-	 
 	 input IDwreg,IDm2reg,IDwmem,IDshift,IDaluimm;
 	 input [3:0] IDaluc;
 	 input [4:0] IDwn;
@@ -33,10 +32,10 @@ module pipe_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDshift,IDaluimm,IDwn,IDqa,IDqb,IDim
 	 output [4:0] EXwn;
 	 output [31:0] EXaluResult,EXdi;
 	 
-	 wire shift,aluim;
+	 wire shift,aluimm;
 	 wire [3:0] aluc;
 	 wire [31:0] qa,qb,immeOrSa;
-	 ID_EX_reg id_to_ex_reg(.wreg(IDwreg),.m2reg(IDm2reg),.wmem(IDwmem),.aluc(IDaluc),.shift(IDshift),.aluimm(IDaluimm),.wn(IDwn),.qa(IDqa),.qb(IDqb),.immeOrSa(IDimmeOrSa),
+	 ID_EX_reg id_to_ex_reg(.wreg(IDwreg),.m2reg(IDm2reg),.wmem(IDwmem),.aluc(IDaluc),.shift(IDshift),.aluimm(IDaluimm),.wn(IDwn),.qa(IDqa),.qb(IDqb),.immeOrSa(IDimmeOrSa),.clk(clk),.clrn(clrn),
 									.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXaluc(aluc),.EXshift(shift),.EXaluimm(aluimm),.EXwn(EXwn),
 									.EXqa(qa),.EXqb(qb),.EXimmeOrSa(immeOrSa));
 	 
@@ -51,5 +50,5 @@ module pipe_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDshift,IDaluimm,IDwn,IDqa,IDqb,IDim
 	 //EX_MEM_reg ex_to_mem_reg(.EXwreg(EXwreg),.EXm2reg(EXm2reg),.EXwmem(EXwmem),.EXwn(EXwn),.aluResult(alu_result),.EXqb(EXqb),.clrn(clrn),.clk(clk),
 	//									.MEMwreg(MEMwreg),.MEMm2reg(MEMm2reg),.MEMwmem(MEMwmem),.MEMwn(MEMwn),.MEMaluResult(MEMaluResult),.MEMdi(MEMdi));
 
-
+	assign EXdi = qb;
 endmodule

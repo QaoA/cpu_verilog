@@ -54,9 +54,9 @@ module pipe_ID(newInst,clrn,clk,WBwreg,WBwn,WBdata,
 	//wire [4:0] wn;
 	mux2x5 wn_select(rt,rd,sst,IDwn);
 	
-	wire [31:0] qa,qb;
+	//wire [31:0] qa,qb;
 	regfile rf(.rna(rs),.rnb(rt),.d(WBdata),.wn(WBwn),
-				  .we(WBwreg),.clk(clk),.clrn(clrn),.qa(qa),.qb(qb));
+				  .we(WBwreg),.clk(clk),.clrn(clrn),.qa(IDqa),.qb(IDqb));
 				  
 	wire e = sext & imme[15];
 	wire [15:0] imm = {16{e}};
