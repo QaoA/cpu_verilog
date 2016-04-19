@@ -31,13 +31,15 @@ module pipe_cpu_test;
 	// Outputs
 	wire [31:0] pc;
 	wire [31:0] aluOut;
+	wire [31:0] memOut;
 
 	// Instantiate the Unit Under Test (UUT)
 	pipe_cpu uut (
 		.clrn(clrn), 
 		.clk(clk), 
 		.pc(pc), 
-		.aluOut(aluOut)
+		.aluOut(aluOut),
+		.memOut(memOut)
 	);
 
 	always #50 clk = ~clk;

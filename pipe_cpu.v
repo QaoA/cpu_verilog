@@ -18,11 +18,11 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_cpu(clrn,clk,pc,aluOut
+module pipe_cpu(clrn,clk,pc,aluOut,memOut
     );
 	 
 	 input clrn,clk;
-	 output [31:0] pc,aluOut;
+	 output [31:0] pc,aluOut,memOut;
 	 
 	 wire [31:0] newInst;
 	 pipe_IF IF(.clrn(clrn),.clk(clk),.newInst(newInst),.pc(pc));
@@ -55,4 +55,5 @@ module pipe_cpu(clrn,clk,pc,aluOut
 					.WBwreg(WBwreg),.WBdata(WBdata),.WBwn(WBwn));
 					
 	assign aluOut = EXaluResult;
+	assign memOut = MEMmemOut;
 endmodule
