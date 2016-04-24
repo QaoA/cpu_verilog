@@ -1,0 +1,7 @@
+verilog work "sccu.v"
+verilog work "pipe_regfile.v"
+verilog work "pipe_inst_reg.v"
+verilog work "pipe_cu.v"
+verilog work "mux2x5.v"
+verilog work "mux2x32.v"
+verilog work "pipe_noDataHazards_ID.v"

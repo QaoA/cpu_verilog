@@ -1,0 +1,3 @@
+verilog work "mux2x32.v"
+verilog work "MEM_WB_reg.v"
+verilog work "pipe_noDataHazards_WB.v"

@@ -1,0 +1,3 @@
+verilog work "IP_RAM.v"
+verilog work "EX_MEM_reg.v"
+verilog work "pipe_noDataHazards_MEM.v"

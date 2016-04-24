@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+pipe_cpu instance_name (
+    .clrn(clrn), 
+    .clk(clk), 
+    .pc(pc), 
+    .aluOut(aluOut), 
+    .memOut(memOut)
+    );
+
+

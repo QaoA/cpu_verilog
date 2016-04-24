@@ -1,0 +1,6 @@
+verilog work "mux2x32.v"
+verilog work "shift.v"
+verilog work "pipe_ID_EX_reg.v"
+verilog work "mux4x32.v"
+verilog work "alu.v"
+verilog work "pipe_noDataHazards_EX.v"

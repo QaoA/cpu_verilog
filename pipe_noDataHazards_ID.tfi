@@ -1,0 +1,28 @@
+
+
+
+// Instantiate the module
+pipe_noDataHazards_ID instance_name (
+    .clk(clk), 
+    .clrn(clrn), 
+    .IFinst(IFinst), 
+    .MEMwn(MEMwn), 
+    .WBwn(WBwn), 
+    .EXm2reg(EXm2reg), 
+    .MEMwreg(MEMwreg), 
+    .WBwreg(WBwreg), 
+    .WBdata(WBdata), 
+    .IFwip(IFwip), 
+    .IDwreg(IDwreg), 
+    .IDm2reg(IDm2reg), 
+    .IDwmem(IDwmem), 
+    .IDaluc(IDaluc), 
+    .IDselectAlua(IDselectAlua), 
+    .IDselectAlub(IDselectAlub), 
+    .IDwn(IDwn), 
+    .IDqa(IDqa), 
+    .IDqb(IDqb), 
+    .IDsaOrImme(IDsaOrImme)
+    );
+
+
