@@ -32,7 +32,8 @@ module pipe_noDataHazards_MEM(EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXqb,clk,cl
 	
 	wire wmem;
 	wire [31:0] di;
+
 	EX_MEM_reg ex_mem_reg(EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXqb,clrn,clk,
-								MEMwreg,MEMm2reg,wmem,MEMwn,MEMaluResult,MEM,di);
+								MEMwreg,MEMm2reg,wmem,MEMwn,MEMaluResult,di);
 	IP_RAM data_mem(wmem,MEMaluResult,di,clk,MEMmemOut);
 endmodule

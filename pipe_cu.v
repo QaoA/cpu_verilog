@@ -37,41 +37,44 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,EXwn,MEMwn,EXm2reg,
 	 wire [1:0] pcsource;
 	 wire [3:0] aluc;
 	 
-	 sccu cu_core(IDop,z,wreg,sst,m2reg,shift,aluimm,sext,aluc,wmme,pcsource);
+	 sccu cu_core(IDop,z,wreg,sst,m2reg,shift,aluimm,sext,aluc,wmem,pcsource);
 	 
 	 //load
 	 wire EXE_is_load = EXm2reg;
 	 wire ID_alua_need_reg = ~shift;
 	 wire ID_alub_need_reg = ~aluimm;
-	 wire EXE_A_DEPPEN = (IDrs == EXwn)&(EXE_is_load)&(ID_alua_need_reg);
-	 wire EXE_B_DEPPEN = (IDrt == EXwn)&(EXE_is_load)&(ID_alub_need_reg);
-	 wire LoadAppend = EXE_A_DEPPEN | EXE_B_DEPPEN;
+	 wire EXE_A_DEPEN = (IDrs == EXwn)&(EXE_is_load)&(ID_alua_need_reg);
+	 wire EXE_B_DEPEN = (IDrt == EXwn)&(EXE_is_load)&(ID_alub_need_reg);
+	 wire LoadDepend = EXE_A_DEPEN | EXE_B_DEPEN;
+	 //store
+	 wire ID_is_store = wmem;
+	 wire StoreDepend = ID_is_store&(IDrt == EXwn);
 	 //data Hazards
-	 assign IDselectAlua[1] = (ID_alua_need_reg)&(~EXwreg)&MEMwreg&(IDrs==MEMwn) + 
-									  (ID_alua_need_reg)&(EXwreg)&(~MEMwreg)&(IDrs==EXwn) +
-									  (ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrs==EXwn))&(IDrs==MEMwn)+
-									  (ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(IDrs==EXwn)&(~(IDrs==MEMwn))+
-									  (ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(IDrs==EXwn)&(IDrs==MEMwn);
-	 assign IDselectAlua[0] = (~ID_alua_need_reg)+
-									  (ID_alua_need_reg)&(~EXwreg)&(MEMwreg)&(IDrs==MEMwn)+
-									  (ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrs==EXwn))&(IDrs==MEMwn);
+	 assign IDselectAlua[1] = ((ID_alua_need_reg)&(~EXwreg)&MEMwreg&(IDrs==MEMwn)) | 
+									  ((ID_alua_need_reg)&(EXwreg)&(~MEMwreg)&(IDrs==EXwn)) |
+									  ((ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrs==EXwn))&(IDrs==MEMwn))|
+									  ((ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(IDrs==EXwn)&(~(IDrs==MEMwn)))|
+									  ((ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(IDrs==EXwn)&(IDrs==MEMwn));
+	 assign IDselectAlua[0] = (~ID_alua_need_reg)|
+									  ((ID_alua_need_reg)&(~EXwreg)&(MEMwreg)&(IDrs==MEMwn))|
+									  ((ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrs==EXwn))&(IDrs==MEMwn));
 									  
-	 assign IDselectAlub[1] = (ID_alub_need_reg)&(~EXwreg)&MEMwreg&(IDrt==MEMwn) + 
-									  (ID_alub_need_reg)&(EXwreg)&(~MEMwreg)&(IDrt==EXwn) +
-									  (ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrt==EXwn))&(IDrt==MEMwn)+
-									  (ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(IDrt==EXwn)&(~(IDrt==MEMwn))+
-									  (ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(IDrt==EXwn)&(IDrt==MEMwn);
-	assign IDselectAlub[0] =  (~ID_alub_need_reg)+
-									  (ID_alub_need_reg)&(~EXwreg)&(MEMwreg)&(IDrt==MEMwn)+
-									  (ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrt==EXwn))&(IDrt==MEMwn);
+	 assign IDselectAlub[1] = ((ID_alub_need_reg)&(~EXwreg)&MEMwreg&(IDrt==MEMwn)) | 
+									  ((ID_alub_need_reg)&(EXwreg)&(~MEMwreg)&(IDrt==EXwn)) |
+									  ((ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrt==EXwn))&(IDrt==MEMwn))|
+									  ((ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(IDrt==EXwn)&(~(IDrt==MEMwn)))|
+									  ((ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(IDrt==EXwn)&(IDrt==MEMwn));
+	assign IDselectAlub[0] =  (~ID_alub_need_reg)|
+									  ((ID_alub_need_reg)&(~EXwreg)&(MEMwreg)&(IDrt==MEMwn))|
+									  ((ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrt==EXwn))&(IDrt==MEMwn));
 									  
-	assign IDwreg = wreg&(~LoadAppend);
-	assign IDwmem = wmem&(~LoadAppend);
+	assign IDwreg = wreg&(~LoadDepend)&(~StoreDepend);
+	assign IDwmem = wmem&(~LoadDepend)&(~StoreDepend);
 	assign IDsst = sst;
 	assign IDsext = sext;
 	assign IDshift = shift;
 	assign IDm2reg = m2reg;
 	assign IDaluc = aluc;
-	assign IFwip = ~LoadAppend;
-	assign IDwir = ~LoadAppend;
+	assign IFwip = ~LoadDepend;
+	assign IDwir = ~LoadDepend;
 endmodule

@@ -51,6 +51,9 @@ module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMw
 	
 	wire sst,shift,sext;
 	
+	//IDrs,IDrt,IDop,EXwreg,MEMwreg,EXwn,MEMwn,EXm2reg,
+	//IDsst,IDsext,IDshift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IFwip,IDwir
+	
 	pipe_cu cu(rs,rt,op,EXwreg,MEMwreg,EXwn,MEMwn,EXm2reg,
 					sst,sext,shift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IFwip,IDwir);
 					

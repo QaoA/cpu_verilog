@@ -22,7 +22,7 @@ module pipe_noDataHazards_IF(IFwip,clk,clrn,
 									  inst,pc
     );
 	 input IFwip,clk,clrn;
-	 output inst;
+	 output [31:0] inst;
 	 output [31:0] pc;
 	 
 	 wire [31:0] nextPc;
