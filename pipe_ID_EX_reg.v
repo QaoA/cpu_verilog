@@ -18,10 +18,11 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDwn,qa,qb,immeOrSa,clk,clrn,
-						EXwreg,EXm2reg,EXwmem,EXaluc,EXselectAlua,EXselectAlub,EXwn,EXqa,EXqb,EXimmeOrSa
+module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,qa,qb,immeOrSa,clk,clrn,
+						EXwreg,EXm2reg,EXwmem,EXaluc,EXselectAlua,EXselectAlub,EXisStoreHazards,EXwn,EXqa,EXqb,EXimmeOrSa
     );
 	 input wreg,m2reg,wmem;
+	 input IDisStoreHazards;
 	 input [1:0] IDselectAlua,IDselectAlub;
 	 input [3:0] aluc;
 	 input [4:0] IDwn;
@@ -30,6 +31,7 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDwn,qa,qb,
 	 input clk,clrn;
 	 
 	 output EXwreg,EXm2reg,EXwmem;
+	 output EXisStoreHazards;
 	 output [1:0] EXselectAlua,EXselectAlub;
 	 output [3:0] EXaluc;
 	 output [4:0] EXwn;
@@ -37,6 +39,7 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDwn,qa,qb,
 	 output [31:0] EXimmeOrSa;
 	 
 	 reg EXwreg,EXm2reg,EXwmem;
+	 reg EXisStoreHazards;
 	 reg [1:0] EXselectAlua,EXselectAlub;
 	 reg [3:0] EXaluc;
 	 reg [4:0] EXwn;
@@ -51,6 +54,7 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDwn,qa,qb,
 				EXwmem <= 0;
 				EXselectAlua <= 0;
 				EXselectAlub <= 0;
+				EXisStoreHazards <= 0;
 				EXaluc <= 0;
 				EXwn <= 0;
 				EXqa <= 0;
@@ -64,6 +68,7 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDwn,qa,qb,
 				EXwmem <= wmem;
 				EXselectAlua <= IDselectAlua;
 				EXselectAlub <= IDselectAlub;
+				EXisStoreHazards <= IDisStoreHazards;
 				EXaluc <= aluc;
 				EXwn <= IDwn;
 				EXqa <= qa;

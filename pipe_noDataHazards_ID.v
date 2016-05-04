@@ -18,16 +18,18 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMwreg,WBwreg,WBdata,
-									  IFwip,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDwn,IDqa,IDqb,IDsaOrImme
+module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMwreg,MEMm2reg,WBwreg,WBdata,
+									  IFwip,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme
     );
 	 input clk,clrn;
 	 input [31:0] IFinst;
 	 input [4:0] EXwn,MEMwn,WBwn;
 	 input EXm2reg,EXwreg,MEMwreg,WBwreg;
 	 input [31:0] WBdata;
+	 input MEMm2reg;
 	 
 	 output IFwip,IDwreg,IDm2reg,IDwmem;
+	 output IDisStoreHazards;
 	 output [3:0] IDaluc;
 	 output [1:0] IDselectAlua,IDselectAlub;
 	 output [4:0] IDwn;
@@ -50,12 +52,10 @@ module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMw
 	assign imme = inst[25:10];
 	
 	wire sst,shift,sext;
+
 	
-	//IDrs,IDrt,IDop,EXwreg,MEMwreg,EXwn,MEMwn,EXm2reg,
-	//IDsst,IDsext,IDshift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IFwip,IDwir
-	
-	pipe_cu cu(rs,rt,op,EXwreg,MEMwreg,EXwn,MEMwn,EXm2reg,
-					sst,sext,shift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IFwip,IDwir);
+	pipe_cu cu(rs,rt,op,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg,
+					sst,sext,shift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IFwip,IDwir);
 					
 	mux2x5 select_wn(rt,rd,sst,IDwn);
 	

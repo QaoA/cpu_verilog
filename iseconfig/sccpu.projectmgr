@@ -27,6 +27,10 @@
          <ClosedNode>/pipe_cpu E:|xilin_project|sccpu|pipe_cpu.v/MEM - pipe_MEM</ClosedNode>
          <ClosedNode>/pipe_cpu E:|xilin_project|sccpu|pipe_cpu.v/pipe_MEM - pipe_MEM</ClosedNode>
          <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v</ClosedNode>
+         <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/EX - pipe_EX</ClosedNode>
+         <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/ID - pipe_ID</ClosedNode>
+         <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/MEM - pipe_MEM</ClosedNode>
+         <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/WB - pipe_WB</ClosedNode>
          <ClosedNode>/pipe_cu E:|xilin_project|sccpu|pipe_cu.v</ClosedNode>
          <ClosedNode>/pipe_noDataHazards_EX E:|xilin_project|sccpu|pipe_noDataHazards_EX.v</ClosedNode>
          <ClosedNode>/pipe_noDataHazards_EX E:|xilin_project|sccpu|pipe_noDataHazards_EX.v/pipe_alu - alu</ClosedNode>
@@ -44,7 +48,6 @@
          <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v/WB - pipe_noDataHazards_WB</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|backup|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|backup|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu/al_unit - alu/shifer - shift</ClosedNode>
-         <ClosedNode>/sccpu E:|xilin_project|sccpu|sccpu.v</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu/al_unit - alu</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu/al_unit - alu/shifer - shift</ClosedNode>
@@ -53,13 +56,13 @@
          <ClosedNode>/shift E:|xilin_project|sccpu|shift.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>pipe_noDataHazards_cpu (E:/xilin_project/sccpu/pipe_noDataHazards_cpu.v)</SelectedItem>
+         <SelectedItem>inst_mem - IP_ROM (E:/xilin_project/sccpu/IP_ROM.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000018f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000018f0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>pipe_noDataHazards_cpu (E:/xilin_project/sccpu/pipe_noDataHazards_cpu.v)</CurrentItem>
+      <CurrentItem>inst_mem - IP_ROM (E:/xilin_project/sccpu/IP_ROM.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -107,13 +110,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Check Syntax</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000b8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000b80000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012c000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012c0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Check Syntax</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
@@ -184,13 +187,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012c000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012c0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>

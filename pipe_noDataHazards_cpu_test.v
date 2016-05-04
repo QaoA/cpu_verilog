@@ -52,6 +52,8 @@ module pipe_noDataHazards_cpu_test;
 		#50;
         clrn = 1;
 		// Add stimulus here
+		
+		#900;
 
 	end
       
