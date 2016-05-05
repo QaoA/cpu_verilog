@@ -26,7 +26,6 @@
          <ClosedNode>/pipe_cpu E:|xilin_project|sccpu|pipe_cpu.v/IF - pipe_IF</ClosedNode>
          <ClosedNode>/pipe_cpu E:|xilin_project|sccpu|pipe_cpu.v/MEM - pipe_MEM</ClosedNode>
          <ClosedNode>/pipe_cpu E:|xilin_project|sccpu|pipe_cpu.v/pipe_MEM - pipe_MEM</ClosedNode>
-         <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v</ClosedNode>
          <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/EX - pipe_EX</ClosedNode>
          <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/ID - pipe_ID</ClosedNode>
          <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/MEM - pipe_MEM</ClosedNode>
@@ -115,7 +114,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012c000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012c0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000101000000010000000100000000000000000000000064ffffffff000000810000000000000001000001010000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
@@ -149,7 +148,6 @@
          <ClosedNode>/pipe_MEM E:|xilin_project|sccpu|pipe_MEM.v</ClosedNode>
          <ClosedNode>/pipe_WB E:|xilin_project|sccpu|pipe_WB.v</ClosedNode>
          <ClosedNode>/pipe_cpu E:|xilin_project|sccpu|pipe_cpu.v</ClosedNode>
-         <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v</ClosedNode>
          <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/EX - pipe_EX</ClosedNode>
          <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/ID - pipe_ID</ClosedNode>
          <ClosedNode>/pipe_cpu_test E:|xilin_project|sccpu|pipe_cpu_test.v/uut - pipe_cpu/MEM - pipe_MEM</ClosedNode>
@@ -176,7 +174,7 @@
       <SelectedItems>
          <SelectedItem>pipe_noDataHazards_cpu_test (E:/xilin_project/sccpu/pipe_noDataHazards_cpu_test.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >6</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b3000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b30000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
@@ -205,7 +203,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000101000000010000000100000000000000000000000064ffffffff000000810000000000000001000001010000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
