@@ -41,13 +41,14 @@
          <ClosedNode>/pipe_noDataHazards_WB E:|xilin_project|sccpu|pipe_noDataHazards_WB.v</ClosedNode>
          <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v</ClosedNode>
          <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v/EX - pipe_noDataHazards_EX</ClosedNode>
+         <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v/EX - pipe_noDataHazards_EX/pipe_alu - alu</ClosedNode>
          <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v/ID - pipe_noDataHazards_ID</ClosedNode>
          <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v/ID - pipe_noDataHazards_ID/cu - pipe_cu</ClosedNode>
-         <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v/IF - pipe_noDataHazards_IF</ClosedNode>
          <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v/MEM - pipe_noDataHazards_MEM</ClosedNode>
          <ClosedNode>/pipe_noDataHazards_cpu E:|xilin_project|sccpu|pipe_noDataHazards_cpu.v/WB - pipe_noDataHazards_WB</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|backup|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|backup|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu/al_unit - alu/shifer - shift</ClosedNode>
+         <ClosedNode>/sccpu E:|xilin_project|sccpu|sccpu.v</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu/al_unit - alu</ClosedNode>
          <ClosedNode>/sccpu E:|xilin_project|sccpu|sccpu.v/sccpu_cpu - sccpu_cpu/al_unit - alu/shifer - shift</ClosedNode>
@@ -187,13 +188,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012c000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012c0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -204,7 +205,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012c000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012c0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
