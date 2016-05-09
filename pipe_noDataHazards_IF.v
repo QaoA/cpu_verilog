@@ -18,18 +18,21 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_noDataHazards_IF(IFwip,clk,clrn,
-									  inst,pc
+module pipe_noDataHazards_IF(IFwip,clk,clrn,jump_pc,will_jump,
+									  inst,pc,p4
     );
 	 input IFwip,clk,clrn;
+	 input [31:0] jump_pc;
+	 input will_jump;
 	 output [31:0] inst;
 	 output [31:0] pc;
+	 output [31:0] p4;
 	 
 	 wire [31:0] nextPc;
-	 //wire [31:0] pc;
 	 
 	 pipe_ip ip(clk,clrn,nextPc,IFwip,pc);
-	 cla32 pcplus4(pc,32'h4,1'b0,nextPc);
+	 cla32 pcplus4(pc,32'h4,1'b0,p4);
 	 IP_ROM inst_mem(pc,inst);
+	 mux2x32 select_nextpc(p4,jump_pc,will_jump,nextPc);
 	 
 endmodule

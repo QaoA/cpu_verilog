@@ -1,6 +1,9 @@
-set -tmpdir "E:/xilin_project/sccpu/xst/projnav.tmp"
-set -xsthdpdir "E:/xilin_project/sccpu/xst"
-run -compileonly yes
+set -tmpdir "xst/projnav.tmp"
+set -xsthdpdir "xst"
+run
+-ifn pipe_noDataHazards_cpu.prj
+-ofn pipe_noDataHazards_cpu
+-ofmt NGC
 -p xc6slx16-3-csg324
 -top pipe_noDataHazards_cpu
 -opt_mode Speed
@@ -47,4 +50,3 @@ run -compileonly yes
 -iob Auto
 -equivalent_register_removal YES
 -slice_utilization_ratio_maxmargin 5
--ifn pipe_noDataHazards_cpu.prj

@@ -18,8 +18,8 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,qa,qb,immeOrSa,clk,clrn,
-						EXwreg,EXm2reg,EXwmem,EXaluc,EXselectAlua,EXselectAlub,EXisStoreHazards,EXwn,EXqa,EXqb,EXimmeOrSa
+module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,qa,qb,immeOrSa,clk,clrn,IDjumpType,IDjumpPc,
+						EXwreg,EXm2reg,EXwmem,EXaluc,EXselectAlua,EXselectAlub,EXisStoreHazards,EXwn,EXqa,EXqb,EXimmeOrSa,EXjumpType,EXjumpPc
     );
 	 input wreg,m2reg,wmem;
 	 input IDisStoreHazards;
@@ -29,6 +29,8 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHa
 	 input [31:0] qa,qb;
 	 input [31:0] immeOrSa;
 	 input clk,clrn;
+	 input [1:0] IDjumpType;
+	 input [31:0] IDjumpPc;
 	 
 	 output EXwreg,EXm2reg,EXwmem;
 	 output EXisStoreHazards;
@@ -37,6 +39,8 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHa
 	 output [4:0] EXwn;
 	 output [31:0] EXqa,EXqb;
 	 output [31:0] EXimmeOrSa;
+	 output [1:0] EXjumpType;
+	 output [31:0] EXjumpPc;
 	 
 	 reg EXwreg,EXm2reg,EXwmem;
 	 reg EXisStoreHazards;
@@ -45,6 +49,8 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHa
 	 reg [4:0] EXwn;
 	 reg [31:0] EXqa,EXqb;
 	 reg [31:0] EXimmeOrSa;
+	 reg [1:0] EXjumpType;
+	 reg [31:0] EXjumpPc;
 	 
 	 always @(negedge clrn or posedge clk)
 		if(clrn == 0)
@@ -60,6 +66,8 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHa
 				EXqa <= 0;
 				EXqb <= 0;
 				EXimmeOrSa <= 0;
+				EXjumpType <= 0;
+				EXjumpPc <= 0;
 			end
 		else
 			begin
@@ -74,6 +82,8 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHa
 				EXqa <= qa;
 				EXqb <= qb;
 				EXimmeOrSa <= immeOrSa;
+				EXjumpType <= IDjumpType;
+				EXjumpPc <= IDjumpPc;
 			end
 			
 			initial
@@ -88,5 +98,7 @@ module pipe_ID_EX_reg(wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHa
 				EXqa = 0;
 				EXqb = 0;
 				EXimmeOrSa = 0;
+				EXjumpType = 0;
+				EXjumpPc = 0;
 				end
 endmodule

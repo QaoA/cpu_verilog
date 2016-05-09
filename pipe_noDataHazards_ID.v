@@ -18,8 +18,8 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMwreg,MEMm2reg,WBwreg,WBdata,
-									  IFwip,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme
+module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMwreg,MEMm2reg,WBwreg,WBdata,MEMjumpType,MEMzero,IFp4,
+									  IFwip,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,IDwillJump,IDjumpType,IDjumpPc
     );
 	 input clk,clrn;
 	 input [31:0] IFinst;
@@ -27,6 +27,9 @@ module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMw
 	 input EXm2reg,EXwreg,MEMwreg,WBwreg;
 	 input [31:0] WBdata;
 	 input MEMm2reg;
+	 input [1:0] MEMjumpType;
+	 input MEMzero;
+	 input [31:0] IFp4;
 	 
 	 output IFwip,IDwreg,IDm2reg,IDwmem;
 	 output IDisStoreHazards;
@@ -34,10 +37,18 @@ module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMw
 	 output [1:0] IDselectAlua,IDselectAlub;
 	 output [4:0] IDwn;
 	 output [31:0] IDqa,IDqb,IDsaOrImme;
+	 output IDwillJump;
+	 output [1:0]IDjumpType;
+	 output [31:0] IDjumpPc;
 	 
 	wire [31:0] inst;
 	wire IDwir;
-	pipe_inst_reg inst_reg(IFinst,inst,clk,clrn,IDwir);
+	wire [31:0] IDp4;
+	
+//									newInst,clk,clrn,wir,p4,
+//									oldInst,IDp4
+	pipe_inst_reg inst_reg(IFinst,clk,clrn,IDwir,IFp4,
+									inst,IDp4);
 	 
 	wire [4:0] rs,rt,rd;
 	wire [4:0] short_sa;
@@ -53,9 +64,10 @@ module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMw
 	
 	wire sst,shift,sext;
 
-	
-	pipe_cu cu(rs,rt,op,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg,
-					sst,sext,shift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IFwip,IDwir);
+//					IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjumpType,MEMzero,
+//					IDsst,IDsext,IDshift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,is_store_hazards,IFwip,IDwir,IFwillJump,IDjumpType
+	pipe_cu cu(rs,rt,op,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg,MEMjumpType,MEMzero,
+					sst,sext,shift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IFwip,IDwir,IDwillJump,IDjumpType);
 					
 	mux2x5 select_wn(rt,rd,sst,IDwn);
 	
@@ -67,4 +79,9 @@ module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMw
 	wire [31:0] sa_extend = {27'b0,short_sa};
 	mux2x32 select_IDsaOrImme(imme_extend,sa_extend,shift,IDsaOrImme);
 	
+	wire [31:0] offset = {imme_extend[29:0],2'b00};
+	wire [31:0] address = {IDp4[31:28],inst[25:0],2'b00};
+	wire [31:0] bneOrBeqJumpPc;
+	cla32 jumpAdder(IDp4,offset,1'b0,bneOrBeqJumpPc);
+	mux2x32 select_pc(bneOrBeqJumpPc,address,IDjumpType[1] & IDjumpType[0],IDjumpPc);
 endmodule

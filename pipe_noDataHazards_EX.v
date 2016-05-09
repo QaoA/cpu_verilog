@@ -18,8 +18,8 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_noDataHazards_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,MEMaluResult,WBdata,clk,clrn,
-										EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb
+module pipe_noDataHazards_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,MEMaluResult,WBdata,clk,clrn,IDjumpType,IDjumpPc,
+										EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb,EXjumpType,EXjumpPc,EXzero
     );
 	 
 	 input IDwreg,IDm2reg,IDwmem;
@@ -31,25 +31,33 @@ module pipe_noDataHazards_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectA
 	 input [31:0] IDsaOrImme;
 	 input [31:0] MEMaluResult,WBdata;
 	 input clk,clrn;
+	 input [1:0] IDjumpType;
+	 input [31:0] IDjumpPc;
 	 
 	 output EXwreg,EXm2reg,EXwmem;
 	 output EXisStoreHazards;
 	 output [4:0] EXwn;
 	 output [31:0] EXaluResult,EXqb;
+	 output [1:0] EXjumpType;
+	 output [31:0] EXjumpPc;
+	 output EXzero;
 	 
 	 wire [3:0] aluc;
 	 wire [1:0] EXselectAlua,EXselectAlub;
 	 wire [31:0] qa,qb;
 	 wire [31:0] saOrImme;
-	 pipe_ID_EX_reg id_ex_reg(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,clk,clrn,
-									 EXwreg,EXm2reg,EXwmem,aluc,EXselectAlua,EXselectAlub,EXisStoreHazards,EXwn,qa,qb,saOrImme);
+	 
+//	 									wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,qa,qb,immeOrSa,clk,clrn,IDjumpType,IDjumpPc,
+//										EXwreg,EXm2reg,EXwmem,EXaluc,EXselectAlua,EXselectAlub,EXisStoreHazards,EXwn,EXqa,EXqb,EXimmeOrSa,EXjumpType,EXjumpPc
+	 pipe_ID_EX_reg id_ex_reg(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,clk,clrn,IDjumpType,IDjumpPc,
+									 EXwreg,EXm2reg,EXwmem,aluc,EXselectAlua,EXselectAlub,EXisStoreHazards,EXwn,qa,qb,saOrImme,EXjumpType,EXjumpPc);
 	 
 	 wire [31:0] alua,alub;
 	 mux4x32 select_alua(qa,saOrImme,MEMaluResult,WBdata,EXselectAlua,alua);
 	 mux4x32 select_alub(qb,saOrImme,MEMaluResult,WBdata,EXselectAlub,alub);
 	 
-	 wire z;
-	 alu pipe_alu(alua,alub,aluc,z,EXaluResult);
+	 //wire z;
+	 alu pipe_alu(alua,alub,aluc,EXzero,EXaluResult);
 	 
 	 assign EXqb = qb;
 endmodule

@@ -18,24 +18,33 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clrn,clk,
-						MEMwreg,MEMm2reg,MEMwmem,MEMisStoreHazards,MEMwn,MEMaluResult,MEMdi
+module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clrn,clk,EXjumpType,EXjumpPc,EXzero,
+						MEMwreg,MEMm2reg,MEMwmem,MEMisStoreHazards,MEMwn,MEMaluResult,MEMdi,MEMjumpType,MEMjumpPc,MEMzero
     );
 	input EXwreg,EXm2reg,EXwmem;
 	input EXisStoreHazards;
 	input [4:0] EXwn;
 	input [31:0] aluResult,EXqb;
 	input clrn,clk;
+	input [1:0] EXjumpType;
+	input [31:0] EXjumpPc;
+	input EXzero;
 	
 	output MEMwreg,MEMm2reg,MEMwmem;
 	output MEMisStoreHazards;
 	output [4:0] MEMwn;
 	output [31:0] MEMaluResult,MEMdi;
+	output [1:0] MEMjumpType;
+	output [31:0] MEMjumpPc;
+	output MEMzero;
 	
 	reg MEMwreg,MEMm2reg,MEMwmem;
 	reg MEMisStoreHazards;
 	reg [4:0] MEMwn;
 	reg [31:0] MEMaluResult,MEMdi;
+	reg [1:0] MEMjumpType;
+	reg [31:0] MEMjumpPc;
+	reg MEMzero;
 	
 	always @(negedge clrn or posedge clk)
 		begin
@@ -48,6 +57,9 @@ module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clr
 					MEMwn <= 0;
 					MEMaluResult <= 0;
 					MEMdi <= 0;
+					MEMjumpType <= 0;
+					MEMjumpPc <= 0;
+					MEMzero <= 0;
 				end
 			else
 				begin
@@ -58,6 +70,9 @@ module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clr
 					MEMwn <= EXwn;
 					MEMaluResult <= aluResult;
 					MEMdi <= EXqb;
+					MEMjumpType <= EXjumpType;
+					MEMjumpPc <= EXjumpPc;
+					MEMzero <= EXzero;
 				end
 		end
 
@@ -70,5 +85,8 @@ module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clr
 			MEMwn = 0;
 			MEMaluResult = 0;
 			MEMdi = 0;
+			MEMjumpType = 0;
+			MEMjumpPc = 0;
+			MEMzero = 0;
 		end
 endmodule

@@ -18,8 +18,8 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg,
-					IDsst,IDsext,IDshift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,is_store_hazards,IFwip,IDwir
+module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjumpType,MEMzero,
+					IDsst,IDsext,IDshift,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,is_store_hazards,IFwip,IDwir,IFwillJump,IDjumpType
     );
 	 
 	 input [4:0] IDrs,IDrt;
@@ -33,6 +33,11 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg,
 	 output [3:0] IDaluc;
 	 output [1:0] IDselectAlua,IDselectAlub;
 	 output is_store_hazards;
+	 
+	 input [1:0] MEMjumpType;
+	 input MEMzero;
+	 output IFwillJump;
+	 output [1:0] IDjumpType;
 	 
 	 wire z;
 	 wire wreg,m2reg,wmem,shift,aluimm,sst,sext;
@@ -96,4 +101,14 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg,
 	assign IDaluc = aluc;
 	assign IFwip = (~LoadDepend);
 	assign IDwir = (~LoadDepend);
+	
+	
+	assign IFwillJump = ((~MEMjumpType[1])&MEMjumpType[0]&(~MEMzero))|
+							  (MEMjumpType[1]&(~MEMjumpType[0])&MEMzero) |
+							  (MEMjumpType[1]&MEMjumpType[0]);
+	wire i_beq = (IDop[11:6] == 6'b001111)?1:0; 
+	wire i_bne = (IDop[11:6] == 6'b010000)?1:0; 
+	wire i_jump = (IDop[11:6] == 6'b010010)?1:0; 
+	assign IDjumpType[1] = i_jump | i_beq;
+	assign IDjumpType[0] = i_jump | i_bne;
 endmodule
