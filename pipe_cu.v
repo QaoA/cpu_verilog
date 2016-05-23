@@ -32,7 +32,7 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjum
 	 output IFwip,IDwir;
 	 output [3:0] IDaluc;
 	 output [1:0] IDselectAlua,IDselectAlub;
-	 output is_store_hazards;
+	 output [1:0] is_store_hazards;
 	 
 	 input [1:0] MEMjumpType;
 	 input MEMzero;
@@ -56,7 +56,8 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjum
 	 wire MEM_is_load = MEMm2reg;
 	 //store
 	 wire ID_is_store = wmem;
-	 wire is_store_hazards = ID_is_store&(IDrt == EXwn)&EXwreg;
+	 wire EX_is_store_hazards = ID_is_store&(IDrt == EXwn)&EXwreg;
+	 wire MEM_is_store_hazards = ID_is_store&(IDrt == MEMwn)&MEMwreg;
 	 //data Hazards
 	 assign IDselectAlua[1] = ((~MEM_is_load)&(
 									  ((ID_alua_need_reg)&(~EXwreg)&MEMwreg&(IDrs==MEMwn)) | 
@@ -72,7 +73,7 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjum
 									  ((ID_alua_need_reg)&(~EXwreg)&(MEMwreg)&(IDrs==MEMwn))|
 									  ((ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrs==EXwn))&(IDrs==MEMwn))
 									  ))|(
-									  (MEM_is_load)&(ID_alua_need_reg)&(MEMwreg)&(IDrs == MEMwn)
+									  (MEM_is_load)
 									  );
 									  
 	 assign IDselectAlub[1] = ((~MEM_is_load)&(
@@ -89,7 +90,7 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjum
 									  ((ID_alub_need_reg)&(~EXwreg)&(MEMwreg)&(IDrt==MEMwn))|
 									  ((ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrt==EXwn))&(IDrt==MEMwn))
 									  ))|(
-									  (MEM_is_load)&(ID_alub_need_reg)&(MEMwreg)&(IDrt == MEMwn)
+									  (MEM_is_load)
 									  );
 									  
 	assign IDwreg = wreg&(~LoadDepend);
@@ -111,4 +112,6 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjum
 	wire i_jump = (IDop[11:6] == 6'b010010)?1:0; 
 	assign IDjumpType[1] = i_jump | i_beq;
 	assign IDjumpType[0] = i_jump | i_bne;
+	assign is_store_hazards[1] = (~EX_is_store_hazards) & MEM_is_store_hazards;
+	assign is_store_hazards[0] = EX_is_store_hazards;
 endmodule

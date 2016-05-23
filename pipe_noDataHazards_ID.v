@@ -32,7 +32,7 @@ module pipe_noDataHazards_ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMw
 	 input [31:0] IFp4;
 	 
 	 output IFwip,IDwreg,IDm2reg,IDwmem;
-	 output IDisStoreHazards;
+	 output [1:0] IDisStoreHazards;
 	 output [3:0] IDaluc;
 	 output [1:0] IDselectAlua,IDselectAlub;
 	 output [4:0] IDwn;

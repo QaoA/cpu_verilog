@@ -18,26 +18,26 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_noDataHazards_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,MEMaluResult,WBdata,clk,clrn,IDjumpType,IDjumpPc,
-										EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb,EXjumpType,EXjumpPc,EXzero
+module pipe_noDataHazards_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,MEMaluResult,WBdata,clk,clrn,IDjumpType,IDjumpPc,WBdata,
+										EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,EXjumpType,EXjumpPc,EXzero
     );
 	 
 	 input IDwreg,IDm2reg,IDwmem;
-	 input IDisStoreHazards;
+	 input [1:0] IDisStoreHazards;
 	 input [3:0] IDaluc;
 	 input [1:0] IDselectAlua,IDselectAlub;
 	 input [4:0] IDwn;
 	 input [31:0] IDqa,IDqb;
 	 input [31:0] IDsaOrImme;
-	 input [31:0] MEMaluResult,WBdata;
+	 input [31:0] MEMaluResult;
 	 input clk,clrn;
 	 input [1:0] IDjumpType;
 	 input [31:0] IDjumpPc;
+	 input [31:0] WBdata;
 	 
 	 output EXwreg,EXm2reg,EXwmem;
-	 output EXisStoreHazards;
 	 output [4:0] EXwn;
-	 output [31:0] EXaluResult,EXqb;
+	 output [31:0] EXaluResult,EXdi;
 	 output [1:0] EXjumpType;
 	 output [31:0] EXjumpPc;
 	 output EXzero;
@@ -46,6 +46,7 @@ module pipe_noDataHazards_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectA
 	 wire [1:0] EXselectAlua,EXselectAlub;
 	 wire [31:0] qa,qb;
 	 wire [31:0] saOrImme;
+	 wire [1:0] EXisStoreHazards;
 	 
 //	 									wreg,m2reg,wmem,aluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,qa,qb,immeOrSa,clk,clrn,IDjumpType,IDjumpPc,
 //										EXwreg,EXm2reg,EXwmem,EXaluc,EXselectAlua,EXselectAlub,EXisStoreHazards,EXwn,EXqa,EXqb,EXimmeOrSa,EXjumpType,EXjumpPc
@@ -59,5 +60,5 @@ module pipe_noDataHazards_EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectA
 	 //wire z;
 	 alu pipe_alu(alua,alub,aluc,EXzero,EXaluResult);
 	 
-	 assign EXqb = qb;
+	 mux4x32 select_di(qb,MEMaluResult,WBdata,32'h0,EXisStoreHazards,EXdi);
 endmodule

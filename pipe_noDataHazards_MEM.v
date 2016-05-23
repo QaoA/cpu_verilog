@@ -18,13 +18,12 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pipe_noDataHazards_MEM(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb,WBdata,clk,clrn,EXjumpType,EXjumpPc,EXzero,
+module pipe_noDataHazards_MEM(EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,WBdata,clk,clrn,EXjumpType,EXjumpPc,EXzero,
 										MEMwreg,MEMm2reg,MEMwn,MEMaluResult,MEMmemOut,MEMjumpType,MEMjumpPc,MEMzero
     ); 
 	input EXwreg,EXm2reg,EXwmem;
-	input EXisStoreHazards;
 	input [4:0] EXwn;
-	input [31:0] EXaluResult,EXqb;
+	input [31:0] EXaluResult,EXdi;
 	input [31:0] WBdata;
 	input clk,clrn;
 	input [1:0] EXjumpType;
@@ -40,13 +39,8 @@ module pipe_noDataHazards_MEM(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluR
 	
 	wire wmem;
 	wire [31:0] MEMdi;
-	wire [31:0] di;
-	wire isStoreHazards;
-	
-//								EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clrn,clk,EXjumpType,EXjumpPc,EXzero,
-//								MEMwreg,MEMm2reg,MEMwmem,MEMisStoreHazards,MEMwn,MEMaluResult,MEMdi,MEMjumpType,MEMjumpPc,MEMzero
-	EX_MEM_reg ex_mem_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb,clrn,clk,EXjumpType,EXjumpPc,EXzero,
-								MEMwreg,MEMm2reg,wmem,isStoreHazards,MEMwn,MEMaluResult,MEMdi,MEMjumpType,MEMjumpPc,MEMzero);
-	mux2x32 select_di(MEMdi,WBdata,isStoreHazards,di);
-	IP_RAM data_mem(wmem,MEMaluResult,di,clk,MEMmemOut);
+
+	EX_MEM_reg ex_mem_reg(EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,clrn,clk,EXjumpType,EXjumpPc,EXzero,
+								MEMwreg,MEMm2reg,wmem,MEMwn,MEMaluResult,MEMdi,MEMjumpType,MEMjumpPc,MEMzero);
+	IP_RAM data_mem(wmem,MEMaluResult,MEMdi,clk,MEMmemOut);
 endmodule

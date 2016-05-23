@@ -42,36 +42,37 @@ module pipe_noDataHazards_cpu(clrn,clk,pc,aluOut,memOut
 	wire [4:0] IDwn;
 	wire [31:0] IDqa,IDqb;
 	wire [31:0] IDsaOrImme;
-	wire IDisStoreHazards;
+	wire [1:0] IDisStoreHazards;
 	wire MEMm2reg;
 	wire [1:0] MEMjumpType;
 	wire MEMzero;
 	wire [1:0] IDjumpType;
 	wire [31:0] IDjumpPc;
-//									clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMwreg,MEMm2reg,WBwreg,WBdata,MEMjumpType,MEMzero,IFp4,
-//									IFwip,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,IFwillJump,IDjumpType,IDjumpPc
+
+										//clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMwreg,MEMm2reg,WBwreg,WBdata,MEMjumpType,MEMzero,IFp4,
+									  //IFwip,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,IDwillJump,IDjumpType,IDjumpPc
 	pipe_noDataHazards_ID ID(clk,clrn,IFinst,EXwn,MEMwn,WBwn,EXm2reg,EXwreg,MEMwreg,MEMm2reg,WBwreg,WBdata,MEMjumpType,MEMzero,IFp4,
 										IFwip,IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,IDwillJump,IDjumpType,IDjumpPc);
 										
 	wire [31:0] MEMaluResult;
 	wire EXwmem;
-	wire [31:0] EXaluResult,EXqb;
-	wire EXisStoreHazardsEXwn;
+	wire [31:0] EXaluResult,EXdi;
+	wire [1:0]EXisStoreHazards;
 	wire [1:0] EXjumpType;
 	wire [31:0] EXjumpPc;
 	wire EXzero;
 	
-//									IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,MEMaluResult,WBdata,clk,clrn,IDjumpType,IDjumpPc,
-//									EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb,EXjumpType,EXjumpPc,EXzero
-	pipe_noDataHazards_EX EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,MEMaluResult,WBdata,clk,clrn,IDjumpType,IDjumpPc,
-									EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb,EXjumpType,EXjumpPc,EXzero);
+									//IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,MEMaluResult,WBdata,clk,clrn,IDjumpType,IDjumpPc,WBdata,
+								// EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,EXjumpType,EXjumpPc,EXzero
+	pipe_noDataHazards_EX EX(IDwreg,IDm2reg,IDwmem,IDaluc,IDselectAlua,IDselectAlub,IDisStoreHazards,IDwn,IDqa,IDqb,IDsaOrImme,MEMaluResult,WBdata,clk,clrn,IDjumpType,IDjumpPc,WBdata,
+									EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,EXjumpType,EXjumpPc,EXzero);
 							  
 	wire [31:0] MEMmemOut;
 	wire [31:0] WBmemOut;
 	
-//										EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb,WBdata,clk,clrn,EXjumpType,EXjumpPc,EXzero,
-//										MEMwreg,MEMm2reg,MEMwn,MEMaluResult,MEMmemOut,MEMjumpType,MEMjumpPc,MEMzero
-	pipe_noDataHazards_MEM MEM(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,EXaluResult,EXqb,WBdata,clk,clrn,EXjumpType,EXjumpPc,EXzero,
+									//	EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,WBdata,clk,clrn,EXjumpType,EXjumpPc,EXzero,
+									//	MEMwreg,MEMm2reg,MEMwn,MEMaluResult,MEMmemOut,MEMjumpType,MEMjumpPc,MEMzero
+	pipe_noDataHazards_MEM MEM(EXwreg,EXm2reg,EXwmem,EXwn,EXaluResult,EXdi,WBdata,clk,clrn,EXjumpType,EXjumpPc,EXzero,
 										MEMwreg,MEMm2reg,MEMwn,MEMaluResult,MEMmemOut,MEMjumpType,MEMjumpPc,MEMzero);
 
 	

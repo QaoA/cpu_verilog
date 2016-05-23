@@ -18,11 +18,10 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clrn,clk,EXjumpType,EXjumpPc,EXzero,
-						MEMwreg,MEMm2reg,MEMwmem,MEMisStoreHazards,MEMwn,MEMaluResult,MEMdi,MEMjumpType,MEMjumpPc,MEMzero
+module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXwn,aluResult,EXqb,clrn,clk,EXjumpType,EXjumpPc,EXzero,
+						MEMwreg,MEMm2reg,MEMwmem,MEMwn,MEMaluResult,MEMdi,MEMjumpType,MEMjumpPc,MEMzero
     );
 	input EXwreg,EXm2reg,EXwmem;
-	input EXisStoreHazards;
 	input [4:0] EXwn;
 	input [31:0] aluResult,EXqb;
 	input clrn,clk;
@@ -31,7 +30,6 @@ module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clr
 	input EXzero;
 	
 	output MEMwreg,MEMm2reg,MEMwmem;
-	output MEMisStoreHazards;
 	output [4:0] MEMwn;
 	output [31:0] MEMaluResult,MEMdi;
 	output [1:0] MEMjumpType;
@@ -39,7 +37,6 @@ module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clr
 	output MEMzero;
 	
 	reg MEMwreg,MEMm2reg,MEMwmem;
-	reg MEMisStoreHazards;
 	reg [4:0] MEMwn;
 	reg [31:0] MEMaluResult,MEMdi;
 	reg [1:0] MEMjumpType;
@@ -53,7 +50,6 @@ module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clr
 					MEMwreg <= 0;
 					MEMm2reg <= 0;
 					MEMwmem <= 0;
-					MEMisStoreHazards <= 0;
 					MEMwn <= 0;
 					MEMaluResult <= 0;
 					MEMdi <= 0;
@@ -66,7 +62,6 @@ module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clr
 					MEMwreg <= EXwreg;
 					MEMm2reg <= EXm2reg;
 					MEMwmem <= EXwmem;
-					MEMisStoreHazards <= EXisStoreHazards;
 					MEMwn <= EXwn;
 					MEMaluResult <= aluResult;
 					MEMdi <= EXqb;
@@ -81,7 +76,6 @@ module EX_MEM_reg(EXwreg,EXm2reg,EXwmem,EXisStoreHazards,EXwn,aluResult,EXqb,clr
 			MEMwreg = 0;
 			MEMm2reg = 0;
 			MEMwmem = 0;
-			MEMisStoreHazards = 0;
 			MEMwn = 0;
 			MEMaluResult = 0;
 			MEMdi = 0;
