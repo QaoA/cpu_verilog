@@ -73,8 +73,9 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjum
 									  ((ID_alua_need_reg)&(~EXwreg)&(MEMwreg)&(IDrs==MEMwn))|
 									  ((ID_alua_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrs==EXwn))&(IDrs==MEMwn))
 									  ))|(
-									  (MEM_is_load)
-									  );
+									  (MEM_is_load) &(
+									  (~ID_alua_need_reg) | (ID_alua_need_reg & MEMwreg & (IDrs == MEMwn))
+									  ));
 									  
 	 assign IDselectAlub[1] = ((~MEM_is_load)&(
 									  ((ID_alub_need_reg)&(~EXwreg)&MEMwreg&(IDrt==MEMwn)) | 
@@ -90,8 +91,9 @@ module pipe_cu(IDrs,IDrt,IDop,EXwreg,MEMwreg,MEMm2reg,EXwn,MEMwn,EXm2reg, MEMjum
 									  ((ID_alub_need_reg)&(~EXwreg)&(MEMwreg)&(IDrt==MEMwn))|
 									  ((ID_alub_need_reg)&(EXwreg)&(MEMwreg)&(~(IDrt==EXwn))&(IDrt==MEMwn))
 									  ))|(
-									  (MEM_is_load)
-									  );
+									  (MEM_is_load) & (
+									  (~ID_alub_need_reg) | (ID_alub_need_reg & MEMwreg & (IDrt == MEMwn))
+									  ));
 									  
 	assign IDwreg = wreg&(~LoadDepend);
 	assign IDwmem = wmem&(~LoadDepend);
